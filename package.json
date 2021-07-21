@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Fullstack JavaScript Template",
   "scripts": {
-    "predev": "node buildScripts/startMessage.js",
-    "dev": "nodemon buildScripts/srcServer.js",
+    "predev": "babel-node build-scripts/startMessage.js",
+    "dev": "babel-node build-scripts/srcServer.js",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel dev localtunnel"
   },
