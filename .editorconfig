@@ -1,4 +1,5 @@
 #editorconfig.org
+#Extenstion: Editor Config for VS Code
 root = true
 
 [*]
