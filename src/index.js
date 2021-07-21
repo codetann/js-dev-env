@@ -1,5 +1,21 @@
-import numeral from "numeral";
+import { getUsers } from "./api/userApi";
 import "./styles/index.sass";
 
-const val = numeral(1000).format("$0,0.00");
-console.log(`i would pay ${val} for this course!`);
+// Populate table of users via API call
+(async () => {
+  let data = await getUsers();
+  let tableBody = "";
+
+  data.forEach((user) => {
+    tableBody += `<tr>
+      <td><a href='#' data-id="${user.id}" class="deleteUser">Delete</a></td>
+      <td>${user.id}</td>
+      <td>${user.firstName}</td>
+      <td>${user.lastName}</td>
+      <td>${user.email}</td>
+    </tr>`;
+  });
+
+  global.document.getElementById("users").innerHTML = tableBody;
+  console.log("ran");
+})();
