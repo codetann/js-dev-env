@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Fullstack JavaScript Template",
   "scripts": {
+    "open:src": "babel-node build-scripts/srcServer.js",
+    "mock:data": "babel-node build-scripts/generateMockData",
     "predev": "babel-node build-scripts/startMessage.js",
-    "dev": "babel-node build-scripts/srcServer.js",
+    "dev": "npm-run-all --parallel open:src",
+    "mock": "npm run mock:data",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel dev localtunnel"
   },
