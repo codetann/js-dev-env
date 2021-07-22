@@ -17,5 +17,4 @@ import "./styles/index.sass";
   });
 
   global.document.getElementById("users").innerHTML = tableBody;
-  console.log("ran");
 })();
