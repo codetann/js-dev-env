@@ -5,11 +5,17 @@
   "scripts": {
     "open:src": "babel-node build-scripts/srcServer.js",
     "mock:data": "babel-node build-scripts/generateMockData",
+    "mock:api": "json-server --host 0.0.0.0 --watch src/api/db.json --port 3001",
     "predev": "babel-node build-scripts/startMessage.js",
-    "dev": "npm-run-all --parallel open:src",
-    "mock": "npm run mock:data",
+    "dev": "npm-run-all --parallel open:src start-mock",
+    "prestart-mock": "npm run mock:data",
+    "start-mock": "npm run mock:api",
     "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel dev localtunnel"
+    "share": "npm-run-all --parallel dev localtunnel",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist",
+    "build": "babel-node build-scripts/build.js",
+    "postbuild": "babel-node build-scripts/distServer.js"
   },
   "author": "Tanner Thomas",
   "license": "MIT",
