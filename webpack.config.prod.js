@@ -12,7 +12,7 @@ export default {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    filename: "bundle.js",
+    filename: "[name].js",
   },
   plugins: [
     new HtmlWebpackPlugin({
