@@ -4,7 +4,10 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 export default {
   mode: "production",
   devtool: "source-map",
-  entry: "./src/index.js",
+  entry: {
+    main: path.resolve(__dirname, "src/index"),
+    vendor: path.resolve(__dirname, "src/vendor"),
+  },
   // development mode wont acutally create files, saves in memory and serves them
   output: {
     path: path.resolve(__dirname, "dist"),
